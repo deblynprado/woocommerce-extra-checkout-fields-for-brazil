@@ -93,7 +93,8 @@ module.exports = function( grunt ) {
 						'<%= dirs.front.js %>/checkout.masks.js',
 						'<%= dirs.front.js %>/fix.checkout.fields.js',
 						'<%= dirs.front.js %>/fix.person.fields.js',
-						'<%= dirs.front.js %>/mailcheck.js'
+						'<%= dirs.front.js %>/mailcheck.js',
+						'<%= dirs.front.js %>/newclient.js'
 					]
 				}
 			}
