@@ -94,7 +94,8 @@ class Extra_Checkout_Fields_For_Brazil_Front_End {
 					'mailcheck'       => isset( $settings['mailcheck'] ) ? 'yes' : 'no',
 					'maskedinput'     => isset( $settings['maskedinput'] ) ? 'yes' : 'no',
 					'addresscomplete' => isset( $settings['addresscomplete'] ) ? 'yes' : 'no',
-					'person_type'     => $settings['person_type']
+					'person_type'     => $settings['person_type'],					
+					'new_client'     => $settings['new_client']
 				)
 			);
 		}
@@ -253,9 +254,8 @@ class Extra_Checkout_Fields_For_Brazil_Front_End {
 				'clear'       => true,
 				'required'    => true,
 				'options'     => array(
-					'0'                     => __( 'Select', 'woocommerce-extra-checkout-fields-for-brazil' ),
-					__( 'no', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'No', 'woocommerce-extra-checkout-fields-for-brazil' ),
-					__( 'yes', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Yes', 'woocommerce-extra-checkout-fields-for-brazil' )
+					'0'                     => __( 'No', 'woocommerce-extra-checkout-fields-for-brazil' ),					
+					'1'					    => __( 'Yes', 'woocommerce-extra-checkout-fields-for-brazil' )
 				)
 			);
 
@@ -264,7 +264,7 @@ class Extra_Checkout_Fields_For_Brazil_Front_End {
 				'label'       => __( 'Wich One?', 'woocommerce-extra-checkout-fields-for-brazil' ),
 				'class'       => array( 'form-row-wide' ),
 				'clear'       => true,
-				'required'    => true,
+				'required'    => false,
 				'options'     => array(
 					'0'                     => __( 'Select', 'woocommerce-extra-checkout-fields-for-brazil' ),
 					__( 'zero to three', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'Zero to Three', 'woocommerce-extra-checkout-fields-for-brazil' ),
