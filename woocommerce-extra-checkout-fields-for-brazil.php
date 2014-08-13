@@ -118,7 +118,8 @@ class Extra_Checkout_Fields_For_Brazil {
 			'maskedinput'     => 1,
 			'addresscomplete' => 1,
 			'validate_cpf'    => 1,
-			'validate_cnpj'   => 1
+			'validate_cnpj'   => 1,
+			'function'	      => 1,
 		);
 
 		add_option( 'wcbcf_settings', $default );

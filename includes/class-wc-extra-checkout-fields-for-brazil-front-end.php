@@ -222,6 +222,28 @@ class Extra_Checkout_Fields_For_Brazil_Front_End {
 			);
 		}
 
+		if ( isset( $settings['function'] ) ) {			
+
+			// Billing Function.
+			$new_fields['billing_function'] = array(
+				'type'        => 'select',
+				'label'       => __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' ),
+				'class'       => array( 'form-row-last' ),
+				'clear'       => true,
+				'required'    => true,
+				'options'     => array(
+					'0'                     => __( 'Select', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'Coordenador de PAA', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'Female', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'School Director', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'School Director', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'Adjunto de Coordena&ccedil;&atilde;o', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Adjunto de Coordena&ccedil;&atilde;o', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'Coordenador Pedag&oacute;gico', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Coordenador Pedag&oacute;gico', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'Teatcher', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Teatcher', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'Other', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Other', 'woocommerce-extra-checkout-fields-for-brazil' )
+				)
+			);
+
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 
 			// Billing Birthdate.

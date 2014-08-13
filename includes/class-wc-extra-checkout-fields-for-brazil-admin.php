@@ -176,6 +176,20 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			)
 		);
 
+		// Function Option
+		add_settings_field(
+			'function',
+			__( 'Display Function Option:', 'woocommerce-extra-checkout-fields-for-brazil' ),
+			array( $this, 'checkbox_element_callback' ),
+			$option,
+			'options_section',
+			array(
+				'menu' => $option,
+				'id' => 'function',
+				'label' => __( 'If checked show the Function field in billing options.', 'woocommerce-extra-checkout-fields-for-brazil' )
+			)
+		);
+
 		// Birthdate and Sex option.
 		add_settings_field(
 			'birthdate_sex',
@@ -188,7 +202,7 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 				'id' => 'birthdate_sex',
 				'label' => __( 'If checked show the Birthdate and Sex field in billing options.', 'woocommerce-extra-checkout-fields-for-brazil' )
 			)
-		);
+		);	
 
 		// Cell Phone option.
 		add_settings_field(
@@ -449,6 +463,12 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			);
 		}
 
+		if ( isset( $settings['function'] ) ) {
+			$billing_data['function'] = array(
+				'label' => __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' )
+			);			
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 			$billing_data['birthdate'] = array(
 				'label' => __( 'Birthdate', 'woocommerce-extra-checkout-fields-for-brazil' )
@@ -647,6 +667,12 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			$html .= '<strong>' . __( 'Company', 'woocommerce-extra-checkout-fields-for-brazil' ) . ': </strong>' . $order->billing_company . '<br />';
 		}
 
+		if ( isset( $settings['function'] ) ) {
+
+			// Function Information.
+			$html .= '<strong>' . __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' ) . ': </strong>' . $order->billing_sex . '<br />';
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 
 			// Birthdate information.
@@ -788,6 +814,10 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			}
 		}
 
+		if ( isset( $settings['function'] ) ) {
+			update_post_meta( $post_id, '_billing_function', woocommerce_clean( $_POST['_billing_function'] ) );
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 			update_post_meta( $post_id, '_billing_birthdate', woocommerce_clean( $_POST['_billing_birthdate'] ) );
 			update_post_meta( $post_id, '_billing_sex', woocommerce_clean( $_POST['_billing_sex'] ) );
@@ -858,6 +888,13 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 		} else {
 			$fields['billing']['fields']['billing_company'] = array(
 				'label' => __( 'Company', 'woocommerce-extra-checkout-fields-for-brazil' ),
+				'description' => ''
+			);
+		}
+
+		if ( isset( $settings['function'] ) ) {		
+			$fields['billing']['fields']['billing_function'] = array(
+				'label' => __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' ),
 				'description' => ''
 			);
 		}
