@@ -228,12 +228,12 @@ class Extra_Checkout_Fields_For_Brazil_Front_End {
 			$new_fields['billing_function'] = array(
 				'type'        => 'select',
 				'label'       => __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' ),
-				'class'       => array( 'form-row-last' ),
-				'clear'       => true,
+				'class'       => array( 'form-row-first' ),
+				'clear'       => false,
 				'required'    => true,
 				'options'     => array(
 					'0'                     => __( 'Select', 'woocommerce-extra-checkout-fields-for-brazil' ),
-					__( 'Coordenador de PAA', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'Female', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'Coordenador de PAA', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'Coordenador de PAA', 'woocommerce-extra-checkout-fields-for-brazil' ),
 					__( 'School Director', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'School Director', 'woocommerce-extra-checkout-fields-for-brazil' ),
 					__( 'Adjunto de Coordena&ccedil;&atilde;o', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Adjunto de Coordena&ccedil;&atilde;o', 'woocommerce-extra-checkout-fields-for-brazil' ),
 					__( 'Coordenador Pedag&oacute;gico', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Coordenador Pedag&oacute;gico', 'woocommerce-extra-checkout-fields-for-brazil' ),
@@ -241,7 +241,49 @@ class Extra_Checkout_Fields_For_Brazil_Front_End {
 					__( 'Other', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Other', 'woocommerce-extra-checkout-fields-for-brazil' )
 				)
 			);
+		}
 
+		if ( isset( $settings['new_client'] ) ) {			
+
+			// Billing New Client.
+			$new_fields['billing_new_client'] = array(
+				'type'        => 'select',
+				'label'       => __( 'Do you have any material of IAB?', 'woocommerce-extra-checkout-fields-for-brazil' ),
+				'class'       => array( 'form-row-last' ),
+				'clear'       => true,
+				'required'    => true,
+				'options'     => array(
+					'0'                     => __( 'Select', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'no', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'No', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'yes', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Yes', 'woocommerce-extra-checkout-fields-for-brazil' )
+				)
+			);
+
+			$new_fields['billing_materials'] = array(
+				'type'        => 'select',
+				'label'       => __( 'Wich One?', 'woocommerce-extra-checkout-fields-for-brazil' ),
+				'class'       => array( 'form-row-wide' ),
+				'clear'       => true,
+				'required'    => true,
+				'options'     => array(
+					'0'                     => __( 'Select', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'zero to three', 'woocommerce-extra-checkout-fields-for-brazil' ) => __( 'Zero to Three', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'pre-school program', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Pre School Program', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'literay program', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Literay Program', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'new series: structure learning', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'New Series: Structure Learning', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'collection proves brazil', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Collection Proves Brazil', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'portuguese language', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Portuguese Language', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'math', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Math', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'science', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Science', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'accelerated learning', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Accelerated Learning', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'fulltime against turn', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Fulltime Against Turn', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'graphics and calligraphy', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Graphics and Calligraphy', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'collection giants books', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Collection Giants Books', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'collection arts in pre-school', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Collection Arts in Pre School', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'teatcher training', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'Teatcher Training', 'woocommerce-extra-checkout-fields-for-brazil' ),
+					__( 'school management', 'woocommerce-extra-checkout-fields-for-brazil' )   => __( 'School Management', 'woocommerce-extra-checkout-fields-for-brazil' )
+				)
+			);
 		}
 
 		if ( isset( $settings['birthdate_sex'] ) ) {

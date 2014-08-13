@@ -190,6 +190,20 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			)
 		);
 
+		// New Client Option
+		add_settings_field(
+			'new_client',
+			__( 'New Client Option:', 'woocommerce-extra-checkout-fields-for-brazil' ),
+			array( $this, 'checkbox_element_callback' ),
+			$option,
+			'options_section',
+			array(
+				'menu' => $option,
+				'id' => 'new_client',
+				'label' => __( 'If checked show ask if the user have any Alfa e Beto materials.', 'woocommerce-extra-checkout-fields-for-brazil' )
+			)
+		);
+
 		// Birthdate and Sex option.
 		add_settings_field(
 			'birthdate_sex',
@@ -469,6 +483,15 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			);			
 		}
 
+		if ( isset( $settings['new_client'] ) ) {
+			$billing_data['new_client'] = array(
+				'label' => __( 'New Client', 'woocommerce-extra-checkout-fields-for-brazil' )
+			);
+			$billing_data['materials'] = array(
+				'label' => __( 'Materials', 'woocommerce-extra-checkout-fields-for-brazil' )
+			);			
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 			$billing_data['birthdate'] = array(
 				'label' => __( 'Birthdate', 'woocommerce-extra-checkout-fields-for-brazil' )
@@ -673,6 +696,15 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			$html .= '<strong>' . __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' ) . ': </strong>' . $order->billing_sex . '<br />';
 		}
 
+		if ( isset( $settings['new_client'] ) ) {
+
+			// New Client Information.
+			$html .= '<strong>' . __( 'New Client', 'woocommerce-extra-checkout-fields-for-brazil' ) . ': </strong>' . $order->billing_sex . '<br />';
+
+			// Materials Information.
+			$html .= '<strong>' . __( 'Materials', 'woocommerce-extra-checkout-fields-for-brazil' ) . ': </strong>' . $order->billing_materials . '<br />';
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 
 			// Birthdate information.
@@ -818,6 +850,11 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 			update_post_meta( $post_id, '_billing_function', woocommerce_clean( $_POST['_billing_function'] ) );
 		}
 
+		if ( isset( $settings['new_client'] ) ) {
+			update_post_meta( $post_id, '_billing_newclient', woocommerce_clean( $_POST['_billing_client'] ) );
+			update_post_meta( $post_id, '_billing_materials', woocommerce_clean( $_POST['_billing_materials'] ) );
+		}
+
 		if ( isset( $settings['birthdate_sex'] ) ) {
 			update_post_meta( $post_id, '_billing_birthdate', woocommerce_clean( $_POST['_billing_birthdate'] ) );
 			update_post_meta( $post_id, '_billing_sex', woocommerce_clean( $_POST['_billing_sex'] ) );
@@ -895,6 +932,18 @@ class Extra_Checkout_Fields_For_Brazil_Admin {
 		if ( isset( $settings['function'] ) ) {		
 			$fields['billing']['fields']['billing_function'] = array(
 				'label' => __( 'Function', 'woocommerce-extra-checkout-fields-for-brazil' ),
+				'description' => ''
+			);
+		}
+
+		if ( isset( $settings['new_client'] ) ) {		
+			$fields['billing']['fields']['new_client'] = array(
+				'label' => __( 'Do you have any material of IAB?', 'woocommerce-extra-checkout-fields-for-brazil' ),
+				'description' => ''
+			);
+
+			$fields['billing']['fields']['materials'] = array(
+				'label' => __( 'Wich one?', 'woocommerce-extra-checkout-fields-for-brazil' ),
 				'description' => ''
 			);
 		}

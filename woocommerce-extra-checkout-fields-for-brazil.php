@@ -120,6 +120,8 @@ class Extra_Checkout_Fields_For_Brazil {
 			'validate_cpf'    => 1,
 			'validate_cnpj'   => 1,
 			'function'	      => 1,
+			'new_client'	  => 1,
+			'materials'		  => 1
 		);
 
 		add_option( 'wcbcf_settings', $default );
